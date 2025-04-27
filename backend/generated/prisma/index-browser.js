@@ -122,8 +122,7 @@ exports.Prisma.UserScalarFieldEnum = {
   email: 'email',
   password: 'password',
   name: 'name',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  createdAt: 'createdAt'
 };
 
 exports.Prisma.ClientScalarFieldEnum = {
@@ -134,8 +133,7 @@ exports.Prisma.ClientScalarFieldEnum = {
   phone: 'phone',
   company: 'company',
   notes: 'notes',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  createdAt: 'createdAt'
 };
 
 exports.Prisma.ProjectScalarFieldEnum = {
@@ -145,8 +143,7 @@ exports.Prisma.ProjectScalarFieldEnum = {
   budget: 'budget',
   deadline: 'deadline',
   status: 'status',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  createdAt: 'createdAt'
 };
 
 exports.Prisma.InteractionLogScalarFieldEnum = {
@@ -156,8 +153,7 @@ exports.Prisma.InteractionLogScalarFieldEnum = {
   date: 'date',
   interactionType: 'interactionType',
   notes: 'notes',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  createdAt: 'createdAt'
 };
 
 exports.Prisma.ReminderScalarFieldEnum = {
@@ -166,8 +162,7 @@ exports.Prisma.ReminderScalarFieldEnum = {
   projectId: 'projectId',
   dueDate: 'dueDate',
   message: 'message',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  createdAt: 'createdAt'
 };
 
 exports.Prisma.SortOrder = {

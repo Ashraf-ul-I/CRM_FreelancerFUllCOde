@@ -7,17 +7,25 @@ interface JwtPayload {
 }
 
 export const authenticate = (req: Request, res: Response, next: NextFunction) => {
-  const token = req.cookies.token;
+  const authHeader = req.headers.authorization;
+  let token;
+
+  if (authHeader && authHeader.startsWith('Bearer ')) {
+    token = authHeader.split(' ')[1];
+  } else {
+
+    token = req.cookies.token;
+  }
 
   if (!token) {
-   throw new AppError( 'Unauthorized: No token found',400);
+    throw new AppError('Unauthorized: No token found', 400);
   }
 
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET!) as JwtPayload;
-    (req as any).user = decoded;
-    next();
+    (req as any).user = decoded; 
+    next(); 
   } catch (error) {
-    throw new AppError('Forbidden: Invalid token' ,403);
+    throw new AppError('Forbidden: Invalid token', 403);
   }
 };

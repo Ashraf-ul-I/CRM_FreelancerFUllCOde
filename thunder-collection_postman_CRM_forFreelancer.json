@@ -1,0 +1,333 @@
+{
+    "info": {
+        "_postman_id": "e20b6436-f799-4195-b65b-c579d1e4eead",
+        "name": "CRM_forFreelancer",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "description": ""
+    },
+    "item": [
+        {
+            "name": "InteractionLogs",
+            "item": [
+                {
+                    "name": "create-interaction",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "http://localhost:3000/api/interaction-logs/create-interaction/d9fc378c-3ee5-4138-83c7-909767bc2600",
+                            "path": [
+                                "api",
+                                "interaction-logs",
+                                "create-interaction",
+                                "d9fc378c-3ee5-4138-83c7-909767bc2600"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3000"
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n\n        \"date\":\"2025-04-27\",\n        \"interactionType\":\"email\",\n        \"notes\":\"showing the frontend design got okay\" \n  \n}"
+                        }
+                    }
+                },
+                {
+                    "name": "get-InteractionLogs",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "http://localhost:3000/api/interaction/get-interactionLogs/d9fc378c-3ee5-4138-83c7-909767bc2600",
+                            "path": [
+                                "api",
+                                "interaction",
+                                "get-interactionLogs",
+                                "d9fc378c-3ee5-4138-83c7-909767bc2600"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3000"
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "reminderApi",
+            "item": [
+                {
+                    "name": "createReminder",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "http://localhost:3000/api/reminder/add/d9fc378c-3ee5-4138-83c7-909767bc2600",
+                            "path": [
+                                "api",
+                                "reminder",
+                                "add",
+                                "d9fc378c-3ee5-4138-83c7-909767bc2600"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3000"
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"dueDate\":\"2025-04-26\",\n  \"message\":\"project should be deliver within this time\"\n}"
+                        }
+                    }
+                },
+                {
+                    "name": "createReminder Copy",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "http://localhost:3000/api/reminder/get-reminder",
+                            "path": [
+                                "api",
+                                "reminder",
+                                "get-reminder"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3000"
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "authAPi",
+            "item": [
+                {
+                    "name": "http://localhost:3000/api/auth/login",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "http://localhost:3000/api/auth/login",
+                            "path": [
+                                "api",
+                                "auth",
+                                "login"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3000"
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"email\":\"ashraful@gmail.com\",\n  \"password\":\"123456\"\n  \n}"
+                        }
+                    }
+                },
+                {
+                    "name": "http://localhost:3000/api/auth/logout",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "http://localhost:3000/api/auth/logout",
+                            "path": [
+                                "api",
+                                "auth",
+                                "logout"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3000"
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "clientApi",
+            "item": [
+                {
+                    "name": "registerClient",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "http://localhost:3000/api/user/register-client",
+                            "path": [
+                                "api",
+                                "user",
+                                "register-client"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3000"
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"name\":\"Shams Rahim\",\n  \"email\":\"shams@gmail.com\",\n  \"phone\":\"01774439883\",\n  \"company\":\"unknown\"\n}"
+                        }
+                    }
+                },
+                {
+                    "name": "updateCLientData",
+                    "request": {
+                        "method": "PATCH",
+                        "url": {
+                            "raw": "http://localhost:3000/api/user/update-client/c08d83a4-86d5-4cc8-adc5-1247305637db",
+                            "path": [
+                                "api",
+                                "user",
+                                "update-client",
+                                "c08d83a4-86d5-4cc8-adc5-1247305637db"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3000"
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"name\":\"Shafiq\",\n  \"phone\":\"019387468235\"\n}"
+                        }
+                    }
+                },
+                {
+                    "name": "get-client",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "http://localhost:3000/api/client/get-client",
+                            "path": [
+                                "api",
+                                "client",
+                                "get-client"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3000"
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "projectApi",
+            "item": [
+                {
+                    "name": "create-project",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "http://localhost:3000/api/project/create-project/c08d83a4-86d5-4cc8-adc5-1247305637db",
+                            "path": [
+                                "api",
+                                "project",
+                                "create-project",
+                                "c08d83a4-86d5-4cc8-adc5-1247305637db"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3000"
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"title\":\"FUnnyu\",\n  \"budget\":140000340.00,\n  \"deadline\":\"2025-06-15\",\n  \"status\":\"Pending\"\n}"
+                        }
+                    }
+                },
+                {
+                    "name": "update-project",
+                    "request": {
+                        "method": "PATCH",
+                        "url": {
+                            "raw": "http://localhost:3000/api/project/update-project/d9fc378c-3ee5-4138-83c7-909767bc2600",
+                            "path": [
+                                "api",
+                                "project",
+                                "update-project",
+                                "d9fc378c-3ee5-4138-83c7-909767bc2600"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3000"
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n      \"clientId\": \"c08d83a4-86d5-4cc8-adc5-1247305637db\"\n}"
+                        }
+                    }
+                },
+                {
+                    "name": "get Project",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "http://localhost:3000/api/project/get-project/c08d83a4-86d5-4cc8-adc5-1247305637db",
+                            "path": [
+                                "api",
+                                "project",
+                                "get-project",
+                                "c08d83a4-86d5-4cc8-adc5-1247305637db"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3000"
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}

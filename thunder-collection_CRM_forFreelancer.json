@@ -1,0 +1,238 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "CRM_forFreelancer",
+    "collectionId": "deaa7d6e-9a01-4cb5-99fe-a6c64c17e102",
+    "dateExported": "2025-04-27T17:40:06.701Z",
+    "version": "1.2",
+    "folders": [
+        {
+            "_id": "b185c946-09dc-45bb-9c8a-9376aff7c3ed",
+            "name": "InteractionLogs",
+            "containerId": "",
+            "created": "2025-04-25T16:00:07.158Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "8b92df2a-4990-4d46-9d8c-321f2c80d8b9",
+            "name": "reminderApi",
+            "containerId": "",
+            "created": "2025-04-25T17:45:09.781Z",
+            "sortNum": 20000
+        },
+        {
+            "_id": "b94cdbbb-2465-480b-8f26-12ddaf7c4494",
+            "name": "authAPi",
+            "containerId": "",
+            "created": "2025-04-25T19:34:23.512Z",
+            "sortNum": 30000
+        },
+        {
+            "_id": "b9b89fb1-bde6-4281-8de8-8e9a54fa82c9",
+            "name": "clientApi",
+            "containerId": "",
+            "created": "2025-04-25T19:34:39.457Z",
+            "sortNum": 40000
+        },
+        {
+            "_id": "6f1b389e-f1e7-4aaf-9880-4cadf2928aa1",
+            "name": "projectApi",
+            "containerId": "",
+            "created": "2025-04-25T19:34:47.906Z",
+            "sortNum": 50000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "9ffa9c9f-fe82-4027-9dd7-f87844eb2310",
+            "colId": "deaa7d6e-9a01-4cb5-99fe-a6c64c17e102",
+            "containerId": "b185c946-09dc-45bb-9c8a-9376aff7c3ed",
+            "name": "create-interaction",
+            "url": "http://localhost:3000/api/interaction-logs/create-interaction/d9fc378c-3ee5-4138-83c7-909767bc2600",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2025-04-25T16:00:20.956Z",
+            "modified": "2025-04-25T16:05:01.740Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n\n        \"date\":\"2025-04-27\",\n        \"interactionType\":\"email\",\n        \"notes\":\"showing the frontend design got okay\" \n  \n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "e4191f09-5f16-4649-aaaa-7ed4336a8564",
+            "colId": "deaa7d6e-9a01-4cb5-99fe-a6c64c17e102",
+            "containerId": "b185c946-09dc-45bb-9c8a-9376aff7c3ed",
+            "name": "get-InteractionLogs",
+            "url": "http://localhost:3000/api/interaction/get-interactionLogs/d9fc378c-3ee5-4138-83c7-909767bc2600",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2025-04-25T16:39:58.204Z",
+            "modified": "2025-04-27T13:28:23.003Z",
+            "headers": []
+        },
+        {
+            "_id": "8a7a4de7-d76f-4b5c-8f1b-132443300ec8",
+            "colId": "deaa7d6e-9a01-4cb5-99fe-a6c64c17e102",
+            "containerId": "8b92df2a-4990-4d46-9d8c-321f2c80d8b9",
+            "name": "createReminder",
+            "url": "http://localhost:3000/api/reminder/add/d9fc378c-3ee5-4138-83c7-909767bc2600",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2025-04-25T17:45:18.819Z",
+            "modified": "2025-04-25T19:13:02.409Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"dueDate\":\"2025-04-26\",\n  \"message\":\"project should be deliver within this time\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "49763f49-5679-42f5-b661-c08647fbe87f",
+            "colId": "deaa7d6e-9a01-4cb5-99fe-a6c64c17e102",
+            "containerId": "8b92df2a-4990-4d46-9d8c-321f2c80d8b9",
+            "name": "createReminder Copy",
+            "url": "http://localhost:3000/api/reminder/get-reminder",
+            "method": "GET",
+            "sortNum": 40000,
+            "created": "2025-04-25T19:03:24.611Z",
+            "modified": "2025-04-25T19:03:49.597Z",
+            "headers": []
+        },
+        {
+            "_id": "3d1630fd-1545-454c-80e6-cec218aac212",
+            "colId": "deaa7d6e-9a01-4cb5-99fe-a6c64c17e102",
+            "containerId": "b94cdbbb-2465-480b-8f26-12ddaf7c4494",
+            "name": "http://localhost:3000/api/auth/login",
+            "url": "http://localhost:3000/api/auth/login",
+            "method": "POST",
+            "sortNum": 50000,
+            "created": "2025-04-25T19:35:33.068Z",
+            "modified": "2025-04-25T19:35:33.068Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\":\"ashraful@gmail.com\",\n  \"password\":\"123456\"\n  \n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "3d853f43-ff1d-4637-96e8-213ac646e6c5",
+            "colId": "deaa7d6e-9a01-4cb5-99fe-a6c64c17e102",
+            "containerId": "b94cdbbb-2465-480b-8f26-12ddaf7c4494",
+            "name": "http://localhost:3000/api/auth/logout",
+            "url": "http://localhost:3000/api/auth/logout",
+            "method": "POST",
+            "sortNum": 60000,
+            "created": "2025-04-25T19:36:07.068Z",
+            "modified": "2025-04-25T19:36:07.068Z",
+            "headers": []
+        },
+        {
+            "_id": "1fcc9867-d326-4f4d-9453-8ee74023c128",
+            "colId": "deaa7d6e-9a01-4cb5-99fe-a6c64c17e102",
+            "containerId": "b9b89fb1-bde6-4281-8de8-8e9a54fa82c9",
+            "name": "registerClient",
+            "url": "http://localhost:3000/api/user/register-client",
+            "method": "POST",
+            "sortNum": 70000,
+            "created": "2025-04-25T19:36:33.146Z",
+            "modified": "2025-04-25T19:36:33.146Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\":\"Shams Rahim\",\n  \"email\":\"shams@gmail.com\",\n  \"phone\":\"01774439883\",\n  \"company\":\"unknown\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "c524fc58-6879-43a0-82f3-5041b5c51654",
+            "colId": "deaa7d6e-9a01-4cb5-99fe-a6c64c17e102",
+            "containerId": "b9b89fb1-bde6-4281-8de8-8e9a54fa82c9",
+            "name": "updateCLientData",
+            "url": "http://localhost:3000/api/user/update-client/c08d83a4-86d5-4cc8-adc5-1247305637db",
+            "method": "PATCH",
+            "sortNum": 80000,
+            "created": "2025-04-25T19:36:51.693Z",
+            "modified": "2025-04-25T19:36:51.693Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\":\"Shafiq\",\n  \"phone\":\"019387468235\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "421d1dd2-743f-4837-b725-92b60544a305",
+            "colId": "deaa7d6e-9a01-4cb5-99fe-a6c64c17e102",
+            "containerId": "6f1b389e-f1e7-4aaf-9880-4cadf2928aa1",
+            "name": "create-project",
+            "url": "http://localhost:3000/api/project/create-project/c08d83a4-86d5-4cc8-adc5-1247305637db",
+            "method": "POST",
+            "sortNum": 90000,
+            "created": "2025-04-25T19:37:24.285Z",
+            "modified": "2025-04-27T11:45:50.602Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"title\":\"FUnnyu\",\n  \"budget\":140000340.00,\n  \"deadline\":\"2025-06-15\",\n  \"status\":\"Pending\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "1e764e4e-9288-4231-8ac3-27d814b427d3",
+            "colId": "deaa7d6e-9a01-4cb5-99fe-a6c64c17e102",
+            "containerId": "6f1b389e-f1e7-4aaf-9880-4cadf2928aa1",
+            "name": "update-project",
+            "url": "http://localhost:3000/api/project/update-project/d9fc378c-3ee5-4138-83c7-909767bc2600",
+            "method": "PATCH",
+            "sortNum": 100000,
+            "created": "2025-04-25T19:37:44.456Z",
+            "modified": "2025-04-25T19:37:44.456Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n      \"clientId\": \"c08d83a4-86d5-4cc8-adc5-1247305637db\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "5abbaaa8-7366-40bb-8d5e-0fcc9a5e94b7",
+            "colId": "deaa7d6e-9a01-4cb5-99fe-a6c64c17e102",
+            "containerId": "b9b89fb1-bde6-4281-8de8-8e9a54fa82c9",
+            "name": "get-client",
+            "url": "http://localhost:3000/api/client/get-client",
+            "method": "GET",
+            "sortNum": 110000,
+            "created": "2025-04-25T19:38:05.884Z",
+            "modified": "2025-04-26T22:36:51.763Z",
+            "headers": []
+        },
+        {
+            "_id": "1dcde448-e903-4b0d-bfa4-4564489c9840",
+            "colId": "deaa7d6e-9a01-4cb5-99fe-a6c64c17e102",
+            "containerId": "6f1b389e-f1e7-4aaf-9880-4cadf2928aa1",
+            "name": "get Project",
+            "url": "http://localhost:3000/api/project/get-project/c08d83a4-86d5-4cc8-adc5-1247305637db",
+            "method": "GET",
+            "sortNum": 120000,
+            "created": "2025-04-25T19:38:28.035Z",
+            "modified": "2025-04-25T19:38:28.035Z",
+            "headers": []
+        },
+        {
+            "_id": "c4af0f28-54a0-4e74-b0c1-eecf59a584be",
+            "colId": "deaa7d6e-9a01-4cb5-99fe-a6c64c17e102",
+            "containerId": "b94cdbbb-2465-480b-8f26-12ddaf7c4494",
+            "name": "register",
+            "url": "",
+            "method": "GET",
+            "sortNum": 130000,
+            "created": "2025-04-27T17:39:13.030Z",
+            "modified": "2025-04-27T17:39:13.030Z",
+            "headers": []
+        }
+    ],
+    "ref": "gIKxSBfUdtEGgUdRALI__RSLhI3QYt3pzyD5YwE-R_Ri5Q9wA6rO3_ml86jkP-wl3IwhC77SiT0JvCfuLtAdmw"
+}

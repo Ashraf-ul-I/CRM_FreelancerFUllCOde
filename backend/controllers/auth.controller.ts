@@ -3,13 +3,31 @@ import bcryptjs from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import { PrismaClient } from '../generated/prisma';
 import { AppError } from '../utils/AppError';
-
+import {z} from 'zod';
 const prisma = new PrismaClient();
+
+const registerSchema = z.object({
+  name: z.string().min(1, { message: 'Name is required' }),
+  email: z.string().email({ message: 'Invalid email address' }),
+  password: z
+    .string()
+    .min(6, "Password must be at least 6 characters")
+    .regex(/[a-z]/, "Password must contain at least one lowercase letter")
+    .regex(/[A-Z]/, "Password must contain at least one uppercase letter")
+    .regex(/\d/, "Password must contain at least one number")
+    .regex(/[!@#$%^&*(),.?":{}|<>]/, "Password must contain at least one special character"),
+});
+
+const loginSchema = z.object({
+  email: z.string().email({ message: 'Invalid email address' }),
+  password: z.string().min(6, { message: 'Password must be at least 6 characters long' }),
+});
 
 export const register = async (req: Request, res: Response,next:NextFunction): Promise<any> => {
   try {
-    const { name, email, password } = req.body;
-
+    const parseData = registerSchema.parse(req.body);
+    const { name, email, password } = parseData;
+    
     const existing = await prisma.user.findUnique({ where: { email } });
     if (existing) {
       throw new AppError('User already exists',400);
@@ -43,7 +61,8 @@ export const register = async (req: Request, res: Response,next:NextFunction): P
 
 export const login= async (req:Request,res:Response,next:NextFunction):Promise<any> =>{
     try {
-        const {email,password}=req.body;
+        const parseData = loginSchema.parse(req.body);
+        const {email,password}=parseData;
 
         const user= await prisma.user.findUnique({where:{email:email}});
         //check if the user is db or not
