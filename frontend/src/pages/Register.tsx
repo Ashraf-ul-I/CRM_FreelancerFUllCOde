@@ -2,163 +2,156 @@ import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState, FormEvent, ChangeEvent } from "react";
 import { useRegisterMutation } from "../features/auth/authApi";
 
-
 export default function Register() {
-    const [name, setName] = useState<string>("");
-    const [email, setEmail] = useState<string>("");
-    const [password, setPassword] = useState<string>("");
-    const [confirmPass, setConfirmPass] = useState<string>("");
-    const [agreed, setAgreed] = useState<boolean>(false);
-    const [error, setError] = useState<string>("");
+  const [name, setName] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [agreed, setAgreed] = useState<boolean>(false);
+  const [error, setError] = useState<string>("");
 
-    const [register, { data, isLoading, isError, isSuccess, error: responseError }] = useRegisterMutation();
-    const navigate = useNavigate();
+  const [register, { data, isLoading, isError, isSuccess, error: responseError }] = useRegisterMutation();
+  const navigate = useNavigate();
 
-    useEffect(() => {
-        if (responseError && "data" in responseError) {
-            setError((responseError.data as string) || "");
-        }
-        if (data?.token && data?.user) {
-            navigate('/');
-        }
-    }, [data, responseError, navigate]);
+  useEffect(() => {
+    if (responseError && "data" in responseError) {
+      const errorData = responseError.data as any;
+      setError(errorData?.message || errorData || "Something went wrong");
+    }
 
-    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        setError("");
-        
-        register({
-            name,
-            email,
-            password,
-        });
-        
-    };
+    if (data?.token && data?.user) {
+      navigate("/");
+    }
+  }, [data, responseError, navigate]);
 
-    const handleInputChange = (setter: (value: string) => void) => (e: ChangeEvent<HTMLInputElement>) => {
-        setter(e.target.value);
-    };
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setError("");
 
-    const handleCheckboxChange = (e: ChangeEvent<HTMLInputElement>) => {
-        setAgreed(e.target.checked);
-    };
+    if (!agreed) {
+      setError("You must agree to the terms and conditions");
+      return;
+    }
 
-    return (
-        <div className="grid place-items-center h-screen bg-[#F9FAFB]">
-            <div className="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-                <div className="max-w-md w-full space-y-8">
-                    <div>
-                        <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
-                            Create your account
-                        </h2>
-                    </div>
-                    <form onSubmit={handleSubmit} className="mt-8 space-y-6" method="POST">
-                        <input type="hidden" name="remember" value="true" />
-                        <div className="rounded-md shadow-sm -space-y-px">
-                            <div>
-                                <label htmlFor="name" className="sr-only">
-                                    Full Name
-                                </label>
-                                <input
-                                    id="name"
-                                    name="Name"
-                                    type="text"
-                                    value={name}
-                                    onChange={handleInputChange(setName)}
-                                    autoComplete="name"
-                                    required
-                                    className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-violet-500 focus:border-violet-500 focus:z-10 sm:text-sm"
-                                    placeholder="Name"
-                                />
-                            </div>
+    register({ name, email, password });
+  };
 
-                            <div>
-                                <label htmlFor="email-address" className="sr-only">
-                                    Email address
-                                </label>
-                                <input
-                                    id="email-address"
-                                    name="email"
-                                    type="email"
-                                    value={email}
-                                    onChange={handleInputChange(setEmail)}
-                                    autoComplete="email"
-                                    required
-                                    className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-violet-500 focus:border-violet-500 focus:z-10 sm:text-sm"
-                                    placeholder="Email address"
-                                />
-                            </div>
+  const handleInputChange = (setter: (value: string) => void) => (e: ChangeEvent<HTMLInputElement>) => {
+    setter(e.target.value);
+  };
 
-                            <div>
-                                <label htmlFor="password" className="sr-only">
-                                    Password
-                                </label>
-                                <input
-                                    id="password"
-                                    name="password"
-                                    type="password"
-                                    value={password}
-                                    onChange={handleInputChange(setPassword)}
-                                    autoComplete="current-password"
-                                    required
-                                    className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-violet-500 focus:border-violet-500 focus:z-10 sm:text-sm"
-                                    placeholder="Password"
-                                />
-                            </div>
+  const handleCheckboxChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setAgreed(e.target.checked);
+  };
 
-                            {/* <div>
-                                <label htmlFor="confirmPassword" className="sr-only">
-                                    Confirm Password
-                                </label>
-                                <input
-                                    id="confirmPassword"
-                                    name="confirmPassword"
-                                    type="password"
-                                    value={confirmPass}
-                                    onChange={handleInputChange(setConfirmPass)}
-                                    autoComplete="new-password"
-                                    required
-                                    className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-violet-500 focus:border-violet-500 focus:z-10 sm:text-sm"
-                                    placeholder="Confirm Password"
-                                />
-                            </div> */}
-                        </div>
+  return (
+    <div className="h-screen flex overflow-hidden">
+      {/* Left Side */}
+      <div className="w-1/2 h-full flex flex-col justify-center items-center">
+        <div className="w-full max-w-md">
+          {/* Emerald Colored Header */}
+          <div className="bg-emerald-500 text-white py-4 rounded-t-md text-center">
+            <h2 className="text-2xl font-bold">Create your account</h2>
+          </div>
 
-                        <div className="flex items-center justify-between">
-                            <div className="flex items-center">
-                                <input
-                                    id="agreed"
-                                    name="agreed"
-                                    type="checkbox"
-                                    checked={agreed}
-                                    onChange={handleCheckboxChange}
-                                    className="h-4 w-4 text-violet-600 focus:ring-violet-500 border-gray-300 rounded"
-                                />
-                                <label htmlFor="agreed" className="ml-2 block text-sm text-gray-900">
-                                    Agreed with the terms and condition
-                                </label>
-                            </div>
-                        </div>
-
-                        <div>
-                            <button
-                                type="submit"
-                                disabled={isLoading}
-                                className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-violet-600 hover:bg-violet-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-violet-500"
-                            >
-                                Sign up
-                            </button>
-                        </div>
-                        {
-                            error && (
-                                <div className="text-red-500 text-sm mt-2">
-                                    {error}
-                                </div>
-                            )
-                        }
-                    </form>
-                </div>
+          {/* Form */}
+          <form
+            className="bg-white shadow-md rounded-b-md px-6 py-6"
+            onSubmit={handleSubmit}
+            method="POST"
+          >
+            <div className="mb-4">
+              <label htmlFor="name" className="block text-gray-700 text-sm font-bold mb-2">
+                Full Name
+              </label>
+              <input
+                id="name"
+                name="name"
+                type="text"
+                value={name}
+                onChange={handleInputChange(setName)}
+                required
+                className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-emerald-500 focus:border-emerald-500"
+                placeholder="Full Name"
+              />
             </div>
+
+            <div className="mb-4">
+              <label htmlFor="email-address" className="block text-gray-700 text-sm font-bold mb-2">
+                Email address
+              </label>
+              <input
+                id="email-address"
+                name="email"
+                type="email"
+                value={email}
+                onChange={handleInputChange(setEmail)}
+                required
+                className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-emerald-500 focus:border-emerald-500"
+                placeholder="Email address"
+              />
+            </div>
+
+            <div className="mb-4">
+              <label htmlFor="password" className="block text-gray-700 text-sm font-bold mb-2">
+                Password
+              </label>
+              <input
+                id="password"
+                name="password"
+                type="password"
+                value={password}
+                onChange={handleInputChange(setPassword)}
+                required
+                className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-emerald-500 focus:border-emerald-500"
+                placeholder="Password"
+              />
+            </div>
+
+            <div className="flex items-center mb-4">
+              <input
+                id="agreed"
+                name="agreed"
+                type="checkbox"
+                checked={agreed}
+                onChange={handleCheckboxChange}
+                className="h-4 w-4 text-emerald-600 focus:ring-emerald-500 border-gray-300 rounded"
+              />
+              <label htmlFor="agreed" className="ml-2 block text-sm text-gray-900">
+                I agree to the terms and conditions
+              </label>
+            </div>
+
+            <div className="flex items-center justify-between">
+              <button
+                type="submit"
+                disabled={isLoading}
+                className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              >
+                {isLoading ? "Signing up..." : "Sign Up"}
+              </button>
+
+              <Link to="/login" className="inline-block align-baseline font-bold text-sm text-emerald-500 hover:text-emerald-600">
+                Already have an account?
+              </Link>
+            </div>
+
+            {isError && <div className="text-red-500 text-sm mt-4">{error}</div>}
+            {isSuccess && <div className="text-green-500 text-sm mt-4">Registration successful! Redirecting...</div>}
+          </form>
         </div>
-    );
+      </div>
+
+      {/* Right Side */}
+      <div className="w-1/2 h-full flex items-center justify-center bg-emerald-50">
+        <div className="text-center px-4">
+          <h1 className="text-4xl font-bold text-emerald-500 mb-4 animate-pulse">
+            Welcome to CRM for Freelancers
+          </h1>
+          <p className="text-gray-600 text-lg">
+            Manage your clients and projects smartly!
+          </p>
+        </div>
+      </div>
+    </div>
+  );
 }

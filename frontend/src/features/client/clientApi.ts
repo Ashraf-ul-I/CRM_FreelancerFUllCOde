@@ -21,8 +21,8 @@ export const clientApi = apiSlice.injectEndpoints({
         }),
         }),
         deleteClient: builder.mutation({
-        query: (id) => ({
-            url: `/client/delete-client/${id}`,
+        query: (clientID) => ({
+            url: `/client/delete-client/${clientID}`,
             method: "DELETE",
         }),
         }),
