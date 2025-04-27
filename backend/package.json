@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon --exec ts-node index.ts",
-    "build": "tsc",
+    "build": "npm install && npm install --prefix ../frontend && npm run build --prefix ../frontend",
     "start": "node dist/index.js",
     "prisma": "prisma"
   },
