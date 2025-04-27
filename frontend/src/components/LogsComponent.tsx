@@ -2,7 +2,7 @@ import { Plus, MoveLeftIcon } from 'lucide-react';
 import Button from './common/Button';
 import InfoItem from './common/InfoItem';
 import { Link, useParams } from 'react-router-dom';
-import { useGetInteractionLogsQuery } from '../features/logs/logsApi';
+import { useGetInteractionLogsQuery } from '../features/interatctionLogs/logsApi';
 
 // Skeleton loader component
 const SkeletonLoader = () => (

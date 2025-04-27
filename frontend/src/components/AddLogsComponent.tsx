@@ -5,7 +5,7 @@ import { useAddProjectMutation, useGetProjectsQuery } from "../features/projects
 import toast from "react-hot-toast";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { useCreateInteractionLogMutation, useGetInteractionLogsQuery } from "../features/logs/logsApi";
+import { useCreateInteractionLogMutation, useGetInteractionLogsQuery } from "../features/interatctionLogs/logsApi";
 
 interface LogsData {
   date: string;
