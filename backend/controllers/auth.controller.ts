@@ -1,7 +1,7 @@
 import { Application, NextFunction, Request, Response } from 'express';
 import bcryptjs from 'bcryptjs';
 import jwt from 'jsonwebtoken';
-import { PrismaClient } from '../generated/prisma';
+import { PrismaClient } from '@prisma/client';
 import { AppError } from '../utils/AppError';
 import {z} from 'zod';
 const prisma = new PrismaClient();
