@@ -1,0 +1,29 @@
+{
+  "name": "crmforfreelancer",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon --exec ts-node backend/index.ts",
+    "start": "node dist/index.js",
+    "build": "npm install ",
+    "prisma": "prisma"
+  },
+  "keywords": [],
+  "author": "ashraful",
+  "license": "ISC",
+  "dependencies": {
+    "@prisma/client": "^6.6.0",
+    "bcryptjs": "^3.0.2",
+    "cookie-parser": "^1.4.7",
+    "cookies": "^0.9.1",
+    "cors": "^2.8.5",
+    "date-fns": "^4.1.0",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "parser": "^0.1.4",
+    "zod": "^3.24.3"
+  }
+}
