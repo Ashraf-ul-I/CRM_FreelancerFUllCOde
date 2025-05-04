@@ -2,6 +2,8 @@
 # CRM Freelancer Dashboard
 
 A full-stack CRM dashboard for freelancers to manage clients, projects, reminders, and interaction logs.
+-- For Online Interaction please try out this live link of this project:
+https://crm-freelancer-f-ull-c-ode.vercel.app/
 
 ---
 
